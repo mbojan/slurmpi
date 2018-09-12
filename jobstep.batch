@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name "pi"
+#SBATCH -p topola
 #SBATCH -N 1
 #SBATCH -n 4
 
