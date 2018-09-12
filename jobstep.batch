@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name "pi"
+#SBATCH -N 1
+#SBATCH -n 4
+
+date
+s1=$(srun -n1 ./pi.sh 0 &)
+s2=$(srun -n1 ./pi.sh 1 &)
+s3=$(srun -n1 ./pi.sh 2 &)
+s4=$(srun -n1 ./pi.sh 3 &)
+wait
+sum=$(bc -l <<< $s1+$s2+$s3+$s4)
+echo $sum
+date
